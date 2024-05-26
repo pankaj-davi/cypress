@@ -4,12 +4,14 @@ const Counter = () => {
   const [count, setCount] = useState(0);
   return (
     <div>
-      {count}
+      <div id="count-display">{count}</div>
       <div>
         <button onClick={() => setCount((pre) => pre + 1)}>
           {'INCREMENT'}
         </button>
-        <button onClick={() => setCount((pre) => pre - 1)}>
+        <button
+          onClick={() => setCount((prevCount) => Math.max(prevCount - 1, 0))}
+        >
           {'DECREMENT'}
         </button>
       </div>
